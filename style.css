@@ -1,0 +1,141 @@
+:root {
+    --primary-red: #d32f2f;
+    --gold: #ffd700;
+    --bg-color: #fff5f5;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe3e3 100%);
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 10;
+    position: relative;
+}
+
+.welcome-screen {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 4rem;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(211, 47, 47, 0.15);
+    border: 3px solid var(--primary-red);
+    backdrop-filter: blur(10px);
+}
+
+.main-title {
+    color: var(--primary-red);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.sub-title {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+#start-btn {
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(211, 47, 47, 0.3);
+}
+
+#start-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.4);
+}
+
+#popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 让点击能穿透到下面的元素，或者根据逻辑调整 */
+    z-index: 5;
+}
+
+.popup-window {
+    position: absolute;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    min-width: 100px;
+    max-width: 250px;
+    pointer-events: auto;
+    animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: move;
+    user-select: none;
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+}
+
+.dot-container {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot.red { background: #ff5f56; }
+.dot.yellow { background: #ffbd2e; }
+.dot.green { background: #27c93f; }
+
+.popup-content {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+
+body::before {
+    content: "🏮";
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 3rem;
+    opacity: 0.2;
+}
+
+body::after {
+    content: "🏮";
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    opacity: 0.2;
+}

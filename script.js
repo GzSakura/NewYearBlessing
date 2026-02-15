@@ -1,0 +1,131 @@
+const blessings = [
+    "百花齐放", "鸾凤和鸣", "福星高照", "喜气盈门", "恭贺新春", "招财进宝", "福享新春", "福星高照", "迎春接福", "福禄寿禧", 
+    "春光骀荡", "荣华富贵", "国步龙腾", "大展鸿图", "门凝瑞霭", "家庭幸福", "户发春光", "前途无量", "风光胜旧", "前程似锦", 
+    "岁序更新", "五福临门", "天翔紫燕", "寿比南山", "地暖春风", "南山献颂", "天高地阔", "天赐纯假", "天开淑景", "花开富贵", 
+    "文定吉祥", "招财有道", "一本万利", "恭贺新禧", "长揾长有", "飞黄腾达", "生鸡盎然", "幸福美满", "满园春色", "官运亨通", 
+    "一团和气", "美梦连连", "民夸盛会", "恭贺春节", "国展宏图", "恭贺新喜", "城乡比翼", "红红火火", "山海扬辉", "二龙腾飞", 
+    "春光普照", "百尺竿头", "福气长临", "事业有成", "国兴两制", "民众安康", "户纳千祥", "国家安庆", "泰然自若", "春回柳叶", 
+    "天福华民", "赋献梅花", "百家有福", "千祥云集", "六合同春", "百福骈臻", "四时平安", "人登寿域", "天天开心", "世跻春台", 
+    "笑口常开", "椒花献颂", "幸福安康", "龙凤呈祥", "好运连连", "龙门精神", "太平有象", "百业兴旺", "幸福无疆", "芳草迎春", 
+    "龙缠启岁", "江山秀丽", "凤纪书元", "人物风流", "与山同静", "江山如画", "教子有方", "吉星高照", "母仪典范", "吉祥如意", 
+    "新年快乐", "万事如意", "诸事顺利", "心想事成", "天天开心", "幸福美满", "阖家欢乐", "福星高照", "喜上眉梢", "欢天喜地", 
+    "财运亨通", "吉祥如意", "工作顺利", "龙马精神", "寿比南山", "步步高升", "福如东海", "花好月圆", "神采奕奕", "飞黄腾达", 
+    "升官发财", "安居乐业", "龙凤呈祥", "四海增辉", "鹏程万里", "太平有象", "幸福无疆", "一表人才", "博学多才", "彬彬有礼", 
+    "才貌双全", "鹤立鸡群", "翩翩少年", "足智多谋", "仪表不凡", "气宇轩昂", "眉清目秀", "玉树临风", "清新俊逸", "品貌非凡", 
+    "才貌双绝", "惊才风逸", "风流才子", "雅人深致", "城北徐公", "堂堂正正", "英俊潇洒", "风流倜傥", "逸群之才", "美如冠玉", 
+    "人见人爱", "花见花开", "车见车栽", "才高八斗", "学富五车", "貌似潘安", "剑眉星眸", "挺鼻薄唇", "古雕刻画", "淡定优雅", 
+    "探扇浅笑", "俊美无涛", "风度翩翩", "仪表堂堂", "貌若潘安", "威风凛凛", "落落大方", "相貌堂堂", "明眸皓齿", "衣冠楚楚", 
+    "掷果潘安", "浓眉大眼", "玉质金相", "文质彬彬", "风华月貌", "面如冠玉", "温文尔雅", "淑人君子", "万事顺意", "荣华富贵", 
+    "一帆风顺", "金玉满堂", "六畜兴旺", "五谷丰登", "锦绣前程", "鹏程万里", "事事顺利", "生日快乐", "春风得意", "前程似锦", 
+    "大展鹏图", "生意兴隆", "马到功成", "事业有成", "身体健康", "大吉大利", "招财进宝", "福寿双全", "三羊开泰", "四季发财", 
+    "六六大顺", "多财满家", "家肥屋润", "彩蝶翩翩", "余钱多多", "财源广进", "长命百岁", "寿与天齐", "蒸蒸日上", "日新月异", 
+    "财源滚滚", "百年好合", "开门大吉", "意气风发", "好事连连", "花开富贵", "鸳鸯璧合", "姻缘相配", "誓约同心", "喜缔鸳鸯", 
+    "缔结良缘", "盟结良缘", "白首成约", "鱼水和谐", "缘订三生", "丰财聚宝", "必定如意", "马年大旺", "万事如意", "事事顺心", 
+    "福寿安康", "笑口常开", "百事可乐", "登峰造极", "学习进步", "老如松柏", "吉庆有余", "喜气洋洋", "岁岁平安", "大展鸿图", 
+    "大展经纶", "同业楷模", "良禽择木", "德必有邻", "弘基永固", "华屋生辉", "新居鼎定", "堂构增辉", "瑞霭华堂", "堂开华厦", 
+    "美仑美奂", "才华潢溢", "名冠群伦", "名列前茅", "有志竟成", "良医济世", "仁术济众", "活人济世", "华陀再世", "出类拔萃", 
+    "鹏展之敬", "奉申赆敬", "急公好义", "造褔人群", "热心公益", "仁风广被", "博施济众", "开开心心", "生活幸福", "家庭和睦", 
+    "幸福快乐", "年年有余", "青春常在", "横财就手", "货如轮转", "客似云来", "猪笼入水", "财色兼收", "红光满面", "拾己救人", 
+    "义行可风", "春晖广被", "良母楷模", "淑德可风", "德术兼备", "气贵平和", "情贵淡泊", "心宽神定", "恬淡无忧", "富贵逼人", 
+    "日进斗金", "腰缠万贯", "发财致富", "祝贺发财", "生财有道", "珠联璧合", "美梦成真", "万事大吉", "苦尽甜来", "喜从天降", 
+    "得意洋洋", "和和美美", "天造地设", "富贵双全", "双喜临门", "十全十美", "福满门庭", "万福临门", "吉星高照", "福满人间", 
+    "喜气临门", "万事亨通", "万象更新", "门迎百福", "瑞气盈门", "旭日东升", "和气生财", "出入平安", "欣欣向荣", "美满幸福", 
+    "和气致祥", "事事如意"
+];
+
+const popupContainer = document.getElementById('popup-container');
+let autoPopupInterval = null;
+let remainingBlessings = [...blessings];
+
+// Fisher-Yates 洗牌算法 (Linus: 既然要随机且不重复，就用最经典高效的算法)
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function createPopup(text) {
+    const popup = document.createElement('div');
+    popup.className = 'popup-window';
+    
+    // 随机位置
+    const x = Math.random() * (window.innerWidth - 200);
+    const y = Math.random() * (window.innerHeight - 150);
+    
+    popup.style.left = `${x}px`;
+    popup.style.top = `${y}px`;
+    popup.style.zIndex = Math.floor(Date.now() / 1000);
+
+    popup.innerHTML = `
+        <div class="popup-header">
+            <div class="dot-container">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+        </div>
+        <div class="popup-content">
+            ${text}
+        </div>
+    `;
+
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    popup.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        offsetX = e.clientX - popup.offsetLeft;
+        offsetY = e.clientY - popup.offsetTop;
+        popup.style.zIndex = Math.floor(Date.now() / 1000) + 1000;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+        if (isDragging) {
+            popup.style.left = `${e.clientX - offsetX}px`;
+            popup.style.top = `${e.clientY - offsetY}px`;
+        }
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    popupContainer.appendChild(popup);
+}
+
+function startSurprise() {
+    shuffle(remainingBlessings);
+
+    const burst = () => {
+
+        for(let i = 0; i < 20; i++) {
+            if (remainingBlessings.length > 0) {
+                const text = remainingBlessings.pop(); 
+                setTimeout(() => {
+                    createPopup(text);
+                }, i * 40);
+            } else {
+
+                clearInterval(autoPopupInterval);
+                autoPopupInterval = null;
+                break;
+            }
+        }
+    };
+
+    burst();
+
+    if (!autoPopupInterval) {
+        autoPopupInterval = setInterval(burst, 1000);
+    }
+}
+
+window.addEventListener('DOMContentLoaded', startSurprise);
+
+document.addEventListener('click', (e) => {
+    const randomBlessing = blessings[Math.floor(Math.random() * blessings.length)];
+    createPopup(randomBlessing);
+});
