@@ -50,9 +50,29 @@ function createPopup(text) {
     const popup = document.createElement('div');
     popup.className = 'popup-window';
     
-    // 随机位置
-    const x = Math.random() * (window.innerWidth - 200);
-    const y = Math.random() * (window.innerHeight - 150);
+    // 改进的均匀分布算法 (Linus: 简单的随机往往会导致局部聚集，我们需要更智能的网格采样)
+    const winWidth = window.innerWidth;
+    const winHeight = window.innerHeight;
+    const popupWidth = 220; // 预估宽度
+    const popupHeight = 100; // 预估高度
+    
+    // 使用随机偏移的网格系统来确保覆盖更均匀
+    const gridCols = Math.floor(winWidth / popupWidth);
+    const gridRows = Math.floor(winHeight / popupHeight);
+    
+    const col = Math.floor(Math.random() * gridCols);
+    const row = Math.floor(Math.random() * gridRows);
+    
+    // 在网格内加入抖动，防止看起来像表格一样死板
+    const jitterX = (Math.random() - 0.5) * (winWidth / gridCols);
+    const jitterY = (Math.random() - 0.5) * (winHeight / gridRows);
+    
+    let x = (col * (winWidth / gridCols)) + (winWidth / gridCols / 2) - (popupWidth / 2) + jitterX;
+    let y = (row * (winHeight / gridRows)) + (winHeight / gridRows / 2) - (popupHeight / 2) + jitterY;
+
+    // 边界检查，确保不出圈
+    x = Math.max(10, Math.min(x, winWidth - popupWidth - 10));
+    y = Math.max(10, Math.min(y, winHeight - popupHeight - 10));
     
     popup.style.left = `${x}px`;
     popup.style.top = `${y}px`;
